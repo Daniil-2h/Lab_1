@@ -1,31 +1,30 @@
-# Lab_1
-=======
-# Требования
-- Python 3.11+
-- pip
-- Docker 
-# Запуск
-1. Клонируйте репозиторий:
-   ```bash
-   git clone <url>
-   cd new-year-api
-   ```
-
-2. Создайте и активируйте виртуальное окружение:
+# Лаб. работа 1: 
+Веб-приложение на **Flask**, которое возвращает количество дней до Нового года.  
+# 1. Клонирование репозитория
 ```bash
-python -m venv venv
-source venv/bin/activate   # Linux/macOS
-venv\Scripts\activate      # Windows
+git clone https://github.com/Daniil-2h/Lab_1.git
+cd <папка-проекта>
 ```
 
-3. Установите зависимости:
+# 2. Сборка образа
 ```bash
-pip install -r requirements.txt
-```
-4. Запустите приложение:
-```bash
-python app.py
+docker build -t lab_1 .
 ```
 
-Сервер будет доступен по адресу: `http://localhost:4200/info`
->>>>>>> master
+# 3. Запуск контейнера
+```bash
+docker run -p 4200:4200 lab_1
+```
+
+После запуска приложение будет доступно по адресу `http://localhost:4200`.
+# 4. Проверка работы
+```bash
+curl --location 'http://localhost:4200/info'
+```
+
+Пример ответа:
+```JSON
+{
+  "days_before_new_year": 285
+}
+```
